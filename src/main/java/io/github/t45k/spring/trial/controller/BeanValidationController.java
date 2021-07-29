@@ -3,6 +3,8 @@ package io.github.t45k.spring.trial.controller;
 import io.github.t45k.spring.trial.request.BeanValidationRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +15,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/bean")
@@ -21,6 +24,10 @@ import java.util.Set;
 public class BeanValidationController {
     private final Validator validator;
 
+    /**
+     * Springの機能でバリデートする
+     * MethodArgumentNotValidException が発生する
+     */
     @PostMapping("/bySpring")
     public Map<String, Boolean> validateBySpringBoot(@RequestBody @Validated final BeanValidationRequest request) {
         log.info("id1: " + request.getId1());
@@ -29,6 +36,27 @@ public class BeanValidationController {
         return Map.of("message", true);
     }
 
+    /**
+     * Springの機能でバリデートする
+     * 引数にエラー内容が入る
+     */
+    @PostMapping("/bySpring2")
+    public Map<String, Boolean> validateBySpringBoot2(@RequestBody @Validated final BeanValidationRequest request,
+                                                      final BindingResult errors) {
+        log.info("id1: " + request.getId1());
+        log.info("id2: " + request.getId2());
+
+        System.out.println(
+            errors.getFieldErrors().stream()
+                .map(it -> it.getDefaultMessage()).collect(Collectors.joining("\n"))
+        );
+
+        return Map.of("message", true);
+    }
+
+    /**
+     * Hibernate#validate でバリデートする
+     */
     @PostMapping("/byHibernate")
     public Map<String, Boolean> validateByHibernate(@RequestBody final BeanValidationRequest request) {
         log.info("id1: " + request.getId1());

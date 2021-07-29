@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 @Value
 public class BeanValidationRequest {
 
-    @NotNull
+    @NotNull(message = "id1 is not null")
     Integer id1;
 
     @NotNull
