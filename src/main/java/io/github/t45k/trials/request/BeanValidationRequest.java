@@ -1,4 +1,4 @@
-package io.github.t45k.spring.trial.request;
+package io.github.t45k.trials.request;
 
 import lombok.Value;
 

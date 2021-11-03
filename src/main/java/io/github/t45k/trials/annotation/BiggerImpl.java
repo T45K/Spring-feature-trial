@@ -1,4 +1,4 @@
-package io.github.t45k.spring.trial.annotation;
+package io.github.t45k.trials.annotation;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanWrapper;

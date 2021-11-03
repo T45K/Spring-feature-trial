@@ -1,6 +1,6 @@
-package io.github.t45k.spring.trial.request;
+package io.github.t45k.trials.request;
 
-import io.github.t45k.spring.trial.annotation.Bigger;
+import io.github.t45k.trials.annotation.Bigger;
 import lombok.Value;
 
 @Value

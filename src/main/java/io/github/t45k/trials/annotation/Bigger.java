@@ -1,4 +1,4 @@
-package io.github.t45k.spring.trial.annotation;
+package io.github.t45k.trials.annotation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

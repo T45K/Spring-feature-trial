@@ -1,7 +1,7 @@
-package io.github.t45k.spring.trial.controller;
+package io.github.t45k.trials.controller;
 
-import io.github.t45k.spring.trial.annotation.Bigger;
-import io.github.t45k.spring.trial.request.Request;
+import io.github.t45k.trials.annotation.Bigger;
+import io.github.t45k.trials.request.Request;
 import lombok.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
