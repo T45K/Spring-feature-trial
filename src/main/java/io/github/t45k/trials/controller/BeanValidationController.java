@@ -1,10 +1,10 @@
-package io.github.t45k.spring.trial.controller;
+package io.github.t45k.trials.controller;
 
-import io.github.t45k.spring.trial.request.BeanValidationRequest;
+import io.github.t45k.trials.request.BeanValidationRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -48,7 +48,7 @@ public class BeanValidationController {
 
         System.out.println(
             errors.getFieldErrors().stream()
-                .map(it -> it.getDefaultMessage()).collect(Collectors.joining("\n"))
+                .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining("\n"))
         );
 
         return Map.of("message", true);

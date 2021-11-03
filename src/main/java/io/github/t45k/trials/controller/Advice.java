@@ -1,4 +1,4 @@
-package io.github.t45k.spring.trial.controller;
+package io.github.t45k.trials.controller;
 
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.web.bind.MethodArgumentNotValidException;

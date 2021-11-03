@@ -1,4 +1,4 @@
-package io.github.t45k.spring.trial;
+package io.github.t45k.trials;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
