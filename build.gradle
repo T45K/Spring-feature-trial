@@ -7,12 +7,16 @@ plugins {
 
 group = 'io.github.t45k.trials'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = 1.8
 
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+//    all {
+//        exclude(group: "junit", module: "junit")
+//        exclude(group: "org.junit.vintage", module: "junit-vintage-engine")
+//    }
 }
 
 repositories {
@@ -25,11 +29,12 @@ dependencies {
     implementation 'org.hibernate.validator:hibernate-validator'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
+    testImplementation('org.springframework.boot:spring-boot-starter-test:2.5.5')
 
-    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
+    implementation "org.codehaus.groovy:groovy:3.0.0"
+    testImplementation platform("org.spockframework:spock-bom:2.0-groovy-3.0")
     testImplementation 'org.spockframework:spock-spring:2.0-groovy-3.0'
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation "org.spockframework:spock-core"
 }
 
 test {

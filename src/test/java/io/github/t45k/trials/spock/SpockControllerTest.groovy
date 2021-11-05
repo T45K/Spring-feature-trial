@@ -1,16 +1,13 @@
 package io.github.t45k.trials.spock
 
-import org.junit.Test
-import org.junit.runner.RunWith
+
 import org.spockframework.spring.SpringSpy
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ContextConfiguration
-import org.springframework.test.context.junit4.SpringRunner
 import spock.lang.Specification
 
 @SpringBootTest
-@RunWith(SpringRunner)
 @ContextConfiguration
 class SpockControllerTest extends Specification {
 
@@ -20,7 +17,6 @@ class SpockControllerTest extends Specification {
     @Autowired
     SpockController sut
 
-    @Test
     def "test with auto DI"() {
         given:
         service.action() >> "good bye" // 不要
@@ -37,7 +33,6 @@ class SpockControllerTest extends Specification {
         result == "good bye"
     }
 
-    @Test
     def "test with manual DI"() {
         given:
         def service = Spy(SpockService)
@@ -54,7 +49,6 @@ class SpockControllerTest extends Specification {
         result == "good bye"
     }
 
-    @Test
     def "test with manual DI and mock"() {
         given:
         def service = Mock(SpockService)
